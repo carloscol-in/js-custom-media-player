@@ -5,7 +5,7 @@ function MediaPlayer(config) {
     this._initPlugins();
 }
 
-MediaPlayer.prototype._initPlugins = function() {
+MediaPlayer.prototype._initPlugins = function () {
     const player = {
         play: () => this.play(),
         pause: () => this.pause(),
@@ -23,26 +23,37 @@ MediaPlayer.prototype._initPlugins = function() {
 }
 
 // Play/Pause
-MediaPlayer.prototype.play = function() {
+MediaPlayer.prototype.play = function () {
     this.media.play();
 }
-MediaPlayer.prototype.pause = function() {
+MediaPlayer.prototype.pause = function () {
     this.media.pause();
 }
-MediaPlayer.prototype.togglePlay = function() {
-    if(this.media.paused) {
+MediaPlayer.prototype.togglePlay = function (el) {
+    if (this.media.paused) {
+        el.innerText = "Pause";
         this.play();
     } else {
+        el.innerText = "Play";
         this.pause();
     }
 }
 
 // Mute/Unmute
-MediaPlayer.prototype.mute = function() {
+MediaPlayer.prototype.mute = function () {
     this.media.muted = true;
 }
-MediaPlayer.prototype.unmute = function() {
+MediaPlayer.prototype.unmute = function () {
     this.media.muted = false;
+}
+MediaPlayer.prototype.toggleMute = function (el) {
+    if (this.media.muted) {
+        el.innerText = "Mute";
+        this.media.muted = false;
+    } else {
+        el.innerText = "Unmute";
+        this.media.muted = true;
+    }
 }
 
 export default MediaPlayer;
