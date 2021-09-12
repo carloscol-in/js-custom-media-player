@@ -38,3 +38,59 @@ card = { type: 'Wildcard' };
 
 // Object
 let obj: object = {};
+
+
+// Functions
+function addNums(a: number, b: number): number {
+    return a + b;
+}
+
+let sum = addNums(1, 2);
+
+
+function createAdder(a: number): (number) => number {
+    return function (b: number) {
+        return b + a;
+    }
+}
+
+let addFour = createAdder(4);
+let fourPlus6 = addFour(6);
+console.log(fourPlus6);
+
+
+function fullName(first_name: string, last_name?: string): string {
+    let full_name = `${first_name}`;
+    if (last_name) full_name = full_name + ` ${last_name}`;
+    return full_name;
+}
+
+let user = fullName('Joe', 'Doe');
+console.log(`-${user}-`);
+
+
+// Interfaces
+interface Rectangle {
+    width: number,
+    height: number,
+    color: Color,
+}
+
+let rect: Rectangle = {
+    width: 6,
+    height: 3,
+    color: Color.Orange,
+}
+
+function area(r: Rectangle): number {
+    return (r.height * r.width) / 2;
+}
+
+const areaRect = area(rect);
+console.log(areaRect);
+
+rect.toString = function () {
+    return `A ${this.color} rectangle.`
+}
+
+console.log(rect.toString());
