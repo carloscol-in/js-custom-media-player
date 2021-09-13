@@ -14,8 +14,6 @@ self.addEventListener('fetch', event => {
     // get
     if (request.method !== 'GET') return;
 
-    console.log(request.method);
-
     // search in cache
     event.respondWith(cachedResponse(request));
 
