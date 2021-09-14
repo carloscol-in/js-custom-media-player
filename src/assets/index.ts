@@ -1,6 +1,7 @@
 import MediaPlayer from './MediaPlayer';
 
 // plugins
+import Ads from './plugins/Ads'
 import AutoPlay from './plugins/AutoPlay';
 import AutoPause from './plugins/AutoPause';
 
@@ -13,6 +14,7 @@ const player = new MediaPlayer({
     plugins: [
         new AutoPlay(),
         new AutoPause(),
+        new Ads()
     ]
 });
 
